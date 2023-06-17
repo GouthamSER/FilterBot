@@ -53,6 +53,12 @@ Fᴏʀ Mᴏʀᴇ Dᴇᴛᴀɪʟs Cʟɪᴄᴋ Hᴇʟᴘ Bᴜᴛᴛᴏɴ Bᴇʟᴏ
 
 <b>➥ Source Code</b> : <b> SOURCE CODE IS PVT LTD </b>
 """
-    ALRT_TXT = """This is Not your Request
+    ALERT_TXT = """HEY {}
+This is Not your Request
 Request Yourself...!!
+
+© Kuttu Bot
+"""
+
+    RESULT_TXT = """Hᴇʀᴇ Is Wʜᴀᴛ I Fᴏᴜɴᴅ Fᴏʀ Yᴏᴜʀ Sᴇaʀᴄʜ
 """
