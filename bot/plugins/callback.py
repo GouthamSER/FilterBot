@@ -2,7 +2,7 @@ import re
 import time
 import asyncio
 
-from config import CONNECTION_TXT, DELETE_TXT, SETTINGS_TXT
+from config import CONNECTION_TXT, DELETE_TXT, SETTING_TXT
 from pyrogram import Client, filters, enums
 from pyrogram.errors import FloodWait, UserNotParticipant
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
