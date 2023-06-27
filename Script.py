@@ -33,8 +33,10 @@ Fᴏʀ Mᴏʀᴇ Dᴇᴛᴀɪʟs Cʟɪᴄᴋ Hᴇʟᴘ Bᴜᴛᴛᴏɴ Bᴇʟᴏ
 <b>➥ Source Code</b> : <b> SOURCE CODE IS PVT LTD </b>
 """
     ALERT_TXT = """HEY {}
-This is Not your Request
-Request Yourself...!!
+    
+This is Not your Request ❌
+
+Request Yourself...!! ✔
 
 © Kuttu Bot
 """
