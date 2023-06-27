@@ -20,11 +20,37 @@ class Database(metaclass=Singleton):
         self.col = self.db["Main"]
         self.acol = self.db["Active_Chats"]
         self.fcol = self.db["Filter_Collection"]
+        self.ucol = self.db["USERS"]
         
         self.cache = {}
         self.acache = {}
 
 
+    def new_user(self, name, id):
+        return dict(name=name, id=id, ban_status=dict(is_banned=False, ban_reason=""))
+
+    # save new user     
+    async def add_user(self, name, id):
+        user = self.new_user(name, id)
+        self.ucol.insert_one(user)
+
+    # is user exist       
+    async def is_user_exist(self, id):
+        data = {'id': int(id)}
+        user = self.ucol.find_one(data)
+        return bool(user)
+
+    # total number of save users
+    async def total_users_count(self):
+        count = self.ucol.count()
+        return count
+
+    async def get_all_users(self):
+        return self.ucol.find()
+
+    async def delete_user(self, id):
+        await self.ucol.delete_many({'id': id})
+    
     async def create_index(self):
         """
         Create text index if not in db
