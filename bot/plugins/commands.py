@@ -76,7 +76,8 @@ async def start(bot, update):
                 ],[
                     InlineKeyboardButton('Mᴏᴠɪᴇ ɢʀᴏᴜᴘ🎥', url='https://t.me/wudixh')
                 ],[
-                    InlineKeyboardButton('Hᴇʟᴘ🔧', callback_data="help")
+                    InlineKeyboardButton('Hᴇʟᴘ🔧', callback_data="help"),
+                    InlineKeyboardButton('Aʙᴏᴜᴛ🖥', callback_data="about")
            ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
@@ -95,8 +96,7 @@ async def help(bot, update):
             InlineKeyboardButton("Delete♻", callback_data='delete'),
             InlineKeyboardButton("Settings⚙️", callback_data='set')
         ],[
-            InlineKeyboardButton('🏡Hᴏᴍᴇ', callback_data='start'),
-            InlineKeyboardButton('Aʙᴏᴜᴛ🖥', callback_data='about')
+            InlineKeyboardButton('🏡Hᴏᴍᴇ', callback_data='start')
         ],[
             InlineKeyboardButton('🔐Cʟᴏsᴇ', callback_data='close')
         ]]
@@ -117,8 +117,7 @@ async def about(bot, update):
     buttons = [[
             InlineKeyboardButton('Oᴡɴᴇʀ👤', url='https://t.me/wudixh13/4')
         ], [
-            InlineKeyboardButton('🏡Hᴏᴍᴇ', callback_data='start'),
-            InlineKeyboardButton('Bᴀᴄᴋ👈', callback_data='help')
+            InlineKeyboardButton('🏡Hᴏᴍᴇ', callback_data='start')
         ]]
     reply_markup = InlineKeyboardMarkup(buttons)
     
