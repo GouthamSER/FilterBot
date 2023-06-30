@@ -4,6 +4,7 @@ from pyrogram.errors import UserNotParticipant
 from bot import LOGGER # pylint: disable=import-error
 from bot.database import Database # pylint: disable=import-error
 from Script import script
+import asyncio
 
 
 db = Database()
@@ -81,6 +82,10 @@ async def start(bot, update):
            ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
+    s=await update.reply_sticker("CAACAgUAAxkBAAEJid5knmINPSfRysmt72gyRYDRRj099QACaAQAAgSDaFSJZEijq6wS0C8E") #sticker id
+    await asyncio.sleep(1) #sleep for 1s 
+    await s.delete() #sticker delete after 1s
+    
     await update.reply_text(
         text=script.START_TEXT.format(update.from_user.first_name),
         reply_markup=reply_markup,
