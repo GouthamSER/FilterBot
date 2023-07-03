@@ -44,7 +44,8 @@ Request Yourself...!! ✔
     RESULT_TXT = """Hᴇʀᴇ Is Wʜᴀᴛ I Fᴏᴜɴᴅ Fᴏʀ Yᴏᴜʀ Sᴇaʀᴄʜ
 """
 
-
-    STATUS_TXT = """★ Total Users: <code>{}</code>
+    STATUS_TXT = """★ Total Files: <code>{}</code>
+★ Total Users: <code>{}</code>
+★ Total Chats: <code>{}</code>
 ★ Using Storage: <code>{}</code> MB
-★ Free Storage: 512 MB"""
+★ Free Storage: <code>{}</code> MB"""
