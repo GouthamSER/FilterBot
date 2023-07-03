@@ -82,9 +82,9 @@ async def start(bot, update):
            ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
-    s=await update.reply_sticker("CAACAgUAAxkBAAEJid5knmINPSfRysmt72gyRYDRRj099QACaAQAAgSDaFSJZEijq6wS0C8E") #sticker id
-    await asyncio.sleep(1) #sleep for 1s 
-    await s.delete() #sticker delete after 1s
+    s=await update.reply_sticker("CAACAgUAAxkBAAEJkGBkol3j73Bwi8aVpDwKfZaALM8XtwACoQADyJRkFOU68dHdpF6XLwQ") #sticker id
+    await asyncio.sleep(2) #sleep for 2s 
+    await s.delete() #sticker delete after 2s
     
     await update.reply_text(
         text=script.START_TEXT.format(update.from_user.first_name),
@@ -132,18 +132,3 @@ async def about(bot, update):
         parse_mode=enums.ParseMode.HTML,
         reply_to_message_id=update.id
     )
-
-@Client.on_message(filters.command(["stats"]) & filters.private, group=1)
-async def stats(bot, update):
-    total = await Media.count_documents()
-        users = await ucol.total_users_count()
-        chats = await acol.total_chat_count()
-        monsize = await fcol.get_db_size()
-        free = 536870912 - monsize
-        monsize = get_size(monsize)
-        free = get_size(free)
-        await update.reply_text(
-            text=script.STATUS_TXT.format(total, users, chats, monsize, free),
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
