@@ -1,8 +1,8 @@
-# Adv Auto Filter Bot V2
+<h1>Adv Auto Filter Bot V2</h1>
 
 <p align="center">
   <a href="https://github.com/GouthamSER/S-A-F/stargazers">
-    <img src="https://img.shields.io/github.com/GouthamSER/S-A-F?style=social">
+    <img src="">
 
   </a>
   
@@ -57,9 +57,9 @@ OR
 ------------------
 * ->__Your Bot Token From [@BotFather](http://www.telegram.dog/BotFather)__
 
-* ->__Your APP ID And API Harsh From [Telegram](http://www.my.telegram.org) or [@UseTGXBot](http://www.telegram.dog/UseTGXBot)__
+* ->__Your APP ID And API Harsh From [Telegram](http://www.my.telegram.org)
 
-* ->__Your User Session String Obtained From [@PyrogramStringBot](http://www.telegram.dog/PyrogramStringBot)__
+* ->__Your User Session String Obtained From [USING TERMUX FOR SESSION](http://github.com/GouthamSER/StrSesbot)
 
 * ->__Mongo DB URL Obtained From [Mongo DB](http://www.mongodb.com)__
 
@@ -68,12 +68,12 @@ OR
 ## Deploy
 You can deploy this bot anywhere.
 
-<i>**[Watch Deploying Tutorial...](https://youtu.be/KTearEPhumc)**</i>
+<i>**[Watch Deploying Tutorial...](https://youtu.be/@im_goutham_josh)**</i>
 
 <details><summary>Deploy To Heroku</summary>
 <p>
 <br>
-<a href="https://github.com/AlbertEinsteinTG/af-deploy-script">
+<a href="https://github.com/GouthamSER/FilterBot/tree/main">
   <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
 </a>
 </p>
@@ -92,14 +92,14 @@ python3 -m bot
 </details>
 
 ## Support   
-Join Our [Telegram Group](https://www.telegram.dog/CrazyBotszGrp) For Support/Assistance And Our [Channel](https://www.telegram.dog/CrazyBotsz) For Updates.   
+Join Our [Telegram Group](https://www.telegram.dog/wudixh13) For Support/Assistance And Our [Channel](https://www.telegram.dog/wudixh13) For Updates.   
    
 Report Bugs, Give Feature Requests There..   
 Do Fork And Star The Repository If You Liked It.
 
 ## Disclaimer
 [![GNU Affero General Public License v3.0](https://www.gnu.org/graphics/agplv3-155x51.png)](https://www.gnu.org/licenses/agpl-3.0.en.html#header)    
-Licensed under [GNU AGPL v3.0.](https://github.com/CrazyBotsz/Adv-Auto-Filter-Bot-V2/blob/main/LICENSE)
+Licensed under [GNU AGPL v3.0.](https://github.com/GouthamSER/FilterBot/tree/main/LICENSE)
 Selling The Codes To Other People For Money Is *Strictly Prohibited*.
 
 
@@ -107,4 +107,13 @@ Selling The Codes To Other People For Money Is *Strictly Prohibited*.
 
  - Thanks To Dan For His Awsome [Libary](https://github.com/pyrogram/pyrogram)
  - Thanks To SpEcHiDe For His Awesome [DeleteMessagesRoBot](https://github.com/SpEcHiDe/DeleteMessagesRoBot)
- - [Thanks To Me 👀](https://github.com/AlbertEinsteinTG)
+ - [Thanks To Albert](https://github.com/AlbertEinsteinTG)
+ - [Thanks To ME for Recoded](https://github.com/GouthamSER)
+ 
+ <p align = "centre">
+   <a href="https://github.com/GouthamSER">
+    <img src="https://github.com/GouthamSER/FilterBot/assets/97418751/716973c0-fd77-4d28-90d7-c7a87e4618f3"
+      alt="Goutham Josh" width="300" height="300">
+   </a>
+ </p>
+
