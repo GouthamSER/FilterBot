@@ -136,9 +136,9 @@ async def about(bot, update):
 @Client.on_message(filters.command(["stats"]) & filters.private, group=1)
 async def stats(bot, update):
     total = await Media.count_documents()
-        users = await db.total_users_count()
-        chats = await db.total_chat_count()
-        monsize = await db.get_db_size()
+        users = await ucol.total_users_count()
+        chats = await acol.total_chat_count()
+        monsize = await fcol.get_db_size()
         free = 536870912 - monsize
         monsize = get_size(monsize)
         free = get_size(free)
