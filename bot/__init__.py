@@ -15,6 +15,8 @@ BOT_TOKEN = os.environ.get("BOT_TOKEN")
 
 DATABASE_URI = os.environ.get("DATABASE_URI")
 
+COLLECTION_NAME = os.environ.get("COLLECTION_NAME")
+
 USER_SESSION = os.environ.get("USER_SESSION")
 
 VERIFY = {}
