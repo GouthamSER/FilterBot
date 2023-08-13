@@ -27,6 +27,14 @@
             "description": "Your Mongo DB URL Obtained From mongodb.com",
             "value": ""
         },
+        "DATABASE_NAME": {
+            "description": "Mongo Db Name",
+            "value": ""
+        },
+        "COLLECTION_NAME": {
+            "description": "Collection name",
+            "value": ""
+        },
         "USER_SESSION": {
             "description": "A Pyrogram User Session String. Generated From @PyrogramStringBot",
             "value": ""
