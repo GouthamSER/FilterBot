@@ -1,6 +1,6 @@
 import re
 import motor.motor_asyncio # pylint: disable=import-error
-from bot import DATABASE_URI, COLLECTION_NAME # pylint: disable=import-error
+from bot import DATABASE_URI # pylint: disable=import-error
 
 class Singleton(type):
     __instances__ = {}
@@ -19,7 +19,7 @@ class Database(metaclass=Singleton):
         self.db = self._client["Adv_files"]
         self.col = self.db["Main"]
         self.acol = self.db["Active_Chats"]
-        self.fcol = self.db[COLLECTION_NAME]
+        self.fcol = self.db["File_Collection"]
         self.ucol = self.db["USERS"]
         
         self.cache = {}
