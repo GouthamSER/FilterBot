@@ -1,8 +1,6 @@
 import re
 import time
 import asyncio
-
-from config import CONNECTION_TXT, DELETE_TXT, SETTING_TXT
 from pyrogram import Client, filters, enums
 from pyrogram.errors import FloodWait, UserNotParticipant
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
@@ -1654,7 +1652,7 @@ async def callback_data(bot, update: CallbackQuery):
         reply_markup = InlineKeyboardMarkup(buttons)
         
         await update.message.edit(
-            text = CONNECTION_TXT,
+            text = script.CONNECTION_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
@@ -1667,7 +1665,7 @@ async def callback_data(bot, update: CallbackQuery):
         reply_markup = InlineKeyboardMarkup(buttons)
         
         await update.message.edit(
-            text = DELETE_TXT,
+            text = script.DELETE_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
@@ -1680,7 +1678,7 @@ async def callback_data(bot, update: CallbackQuery):
         reply_markup = InlineKeyboardMarkup(buttons)
         
         await update.message.edit(
-            text = SETTING_TXT,
+            text = script.SETTING_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
