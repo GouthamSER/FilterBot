@@ -16,10 +16,10 @@ class Database(metaclass=Singleton):
 
     def __init__(self):
         self._client = motor.motor_asyncio.AsyncIOMotorClient(DATABASE_URI)
-        self.db = self._client.(DATABASE_NAME)
+        self.db = self._client[DATABASE_NAME]
         self.col = self.db["Main"]
         self.acol = self.db["Active_Chats"]
-        self.fcol = self.db.(COLLECTION_NAME)
+        self.fcol = self.db[COLLECTION_NAME]
         self.ucol = self.db["USERS"]
         
         self.cache = {}
