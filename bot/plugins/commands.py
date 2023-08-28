@@ -137,13 +137,13 @@ async def about(bot, update):
 async def stats(bot, message):
     await message.answer("Fetching MongoDb DataBase")
     total = await Database.count_documents()
-    users = await db.total_users_count()
-    monsize = await db.get_db_size()
+    users = await Database.total_users_count()
+    monsize = await Database.get_db_size()
     free = 536870912 - monsize
     monsize = size_formatter(monsize)
     free = size_formatter(free)
         await query.message.edit_text(
-            text=script.STATUS_TXT.format(total, users, monsize, free),
+            text=script.STATUS_TXT.format(total, users, monsize, free)
         )
 
 def size_formatter(size):
