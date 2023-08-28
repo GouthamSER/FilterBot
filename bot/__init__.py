@@ -17,6 +17,10 @@ DATABASE_URI = os.environ.get("DATABASE_URI")
 
 USER_SESSION = os.environ.get("USER_SESSION")
 
+DATABASE_NAME=os.environ.get("DATABASE_NAME")
+
+COLLECTION_NAME=os.environ.get("COLLECTION_NAME")
+
 VERIFY = {}
 
 logging.basicConfig(
