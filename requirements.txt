@@ -1,7 +1,7 @@
-Dnspython = 2.4.2
+Dnspython == 2.4.2
 Motor
-Pyrogram = 2.0.106
+Pyrogram == 2.0.106
 Pymongo
 Requests 
-TgCrypto = 1.2.5
-aiohttp = 3.8.5
+TgCrypto == 1.2.5
+aiohttp == 3.8.5
