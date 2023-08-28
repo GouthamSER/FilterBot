@@ -66,3 +66,7 @@ Button Will Shows The Stats Of Your Channel"""
 
     RESULT_TXT = """Hᴇʀᴇ Is Wʜᴀᴛ I Fᴏᴜɴᴅ Fᴏʀ Yᴏᴜʀ Sᴇaʀᴄʜ
 """
+    STATUS_TXT = """★ Total Files: <code>{}</code>
+★ Total Users: <code>{}</code>
+★ Using Storage: <code>{}</code> MB
+★ Free Storage: <code>{}</code> MB"""
