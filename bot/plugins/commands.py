@@ -2,7 +2,7 @@ from pyrogram import filters, Client, enums
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 from pyrogram.errors import UserNotParticipant
 from bot import LOGGER # pylint: disable=import-error
-from bot.database import Database # pylint: disable=import-error
+from bot.database import Database, db # pylint: disable=import-error
 from Script import script
 import asyncio
 
@@ -132,3 +132,27 @@ async def about(bot, update):
         parse_mode=enums.ParseMode.HTML,
         reply_to_message_id=update.id
     )
+#stats checking
+@Client.on_message(filters.command("stats") & filters.incoming)
+async def stats(bot, message):
+    await message.answer("Fetching MongoDb DataBase")
+    total = await Database.count_documents()
+    users = await db.total_users_count()
+    monsize = await db.get_db_size()
+    free = 536870912 - monsize
+    monsize = size_formatter(monsize)
+    free = size_formatter(free)
+        await query.message.edit_text(
+            text=script.STATUS_TXT.format(total, users, monsize, free),
+        )
+
+def size_formatter(size):
+    """Get size in readable format"""
+
+    units = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB"]
+    size = float(size)
+    i = 0
+    while size >= 1024.0 and i < len(units):
+        i += 1
+        size /= 1024.0
+    return "%.2f %s" % (size, units[i])
