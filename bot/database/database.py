@@ -43,6 +43,10 @@ class Database(metaclass=Singleton):
     async def total_users_count(self):
         count = self.ucol.count_documents()
         return count
+#db size giving "stats"
+    async def get_db_size(self):
+        return (await self.db.command("dbstats"))['dataSize']
+#end stats
 
     async def get_all_users(self):
         return self.ucol.find()
