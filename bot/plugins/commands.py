@@ -142,7 +142,7 @@ async def stats(bot, message):
     free = 536870912 - monsize
     monsize = size_formatter(monsize)
     free = size_formatter(free)
-        await message.edit_text(
+        await message.reply_text(
             text=script.STATUS_TXT.format(total, users, monsize, free)
         )
 
