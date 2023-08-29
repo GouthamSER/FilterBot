@@ -1641,7 +1641,8 @@ async def callback_data(bot, update: CallbackQuery):
             parse_mode=enums.ParseMode.HTML
         )
 
-    elif update.data == "about": 
+    elif update.data == "about":
+        await update.answer("Fetching MongoDb DataBase")
         buttons = [[
             InlineKeyboardButton('🏡ʜᴏᴍᴇ', callback_data='start')
         ]]
@@ -1673,7 +1674,7 @@ async def callback_data(bot, update: CallbackQuery):
         )
         
     elif query.data == "rfrsh":
-        await query.answer("Fetching MongoDb DataBase")
+        await update.answer("Fetching MongoDb DataBase")
         buttons = [[
             InlineKeyboardButton('👩‍🦯 Back', callback_data='help'),
             InlineKeyboardButton('♻️', callback_data='rfrsh')
