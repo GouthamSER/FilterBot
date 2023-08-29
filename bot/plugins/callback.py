@@ -1627,13 +1627,9 @@ async def callback_data(bot, update: CallbackQuery):
 
     elif update.data == "help":
         buttons = [[
-            InlineKeyboardButton("Connect🎛", callback_data='connection'),
-            InlineKeyboardButton("Delete♻", callback_data='delete'),
-            InlineKeyboardButton("Settings⚙️", callback_data='set'),
             InlineKeyboardButton('Stats💹', callback_data='stats')
         ],[
-            InlineKeyboardButton('🏡Hᴏᴍᴇ', callback_data='start')
-        ],[
+            InlineKeyboardButton('🏡Hᴏᴍᴇ', callback_data='start'),
             InlineKeyboardButton('🔐Cʟᴏsᴇ', callback_data='close')
         ]]
     
@@ -1641,45 +1637,6 @@ async def callback_data(bot, update: CallbackQuery):
         
         await update.message.edit(
             text = script.HELP_TEXT,
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
-
-    elif update.data == "connection":
-        buttons = [[
-            InlineKeyboardButton("🔙ʙᴀᴄᴋ", callback_data="help")
-        ]]
-        
-        reply_markup = InlineKeyboardMarkup(buttons)
-        
-        await update.message.edit(
-            text = script.CONNECTION_TXT,
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
-        
-    elif update.data == "delete":
-        buttons = [[
-            InlineKeyboardButton("🔙ʙᴀᴄᴋ", callback_data="help")
-        ]]
-        
-        reply_markup = InlineKeyboardMarkup(buttons)
-        
-        await update.message.edit(
-            text = script.DELETE_TXT,
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
-        
-    elif update.data == "set":
-        buttons = [[
-            InlineKeyboardButton("🔙ʙᴀᴄᴋ", callback_data="help")
-        ]]
-        
-        reply_markup = InlineKeyboardMarkup(buttons)
-        
-        await update.message.edit(
-            text = script.SETTING_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
