@@ -2,7 +2,7 @@ from pyrogram import filters, Client, enums
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 from pyrogram.errors import UserNotParticipant
 from bot import LOGGER # pylint: disable=import-error
-from bot.database import Database, db # pylint: disable=import-error
+from bot.database import Database # pylint: disable=import-error
 from Script import script
 import asyncio
 
