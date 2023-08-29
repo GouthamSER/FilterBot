@@ -18,7 +18,7 @@ from bot.plugins.settings import( # pylint: disable=import-error
     remove_emoji
 )
 from bot.database import Database # pylint: disable=import-error
-
+from bot.database import db # pylint: disable=import-error
 db = Database()
 
 
@@ -1675,7 +1675,7 @@ async def callback_data(bot, update: CallbackQuery):
             parse_mode=enums.ParseMode.HTML
         )
         
-    elif query.data == "rfrsh":
+    elif update.data == "rfrsh":
         await update.answer("Aᴄᴄᴇssɪɴɢ...")
         buttons = [[
             InlineKeyboardButton('👩‍🦯 Back', callback_data='help'),
