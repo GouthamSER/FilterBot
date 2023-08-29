@@ -1629,7 +1629,8 @@ async def callback_data(bot, update: CallbackQuery):
         buttons = [[
             InlineKeyboardButton("Connect🎛", callback_data='connection'),
             InlineKeyboardButton("Delete♻", callback_data='delete'),
-            InlineKeyboardButton("Settings⚙️", callback_data='set')
+            InlineKeyboardButton("Settings⚙️", callback_data='set'),
+            InlineKeyboardButton('Stats💹', callback_data='stats')
         ],[
             InlineKeyboardButton('🏡Hᴏᴍᴇ', callback_data='start')
         ],[
@@ -1692,6 +1693,43 @@ async def callback_data(bot, update: CallbackQuery):
         
         await update.message.edit(
             text = script.ABOUT_TEXT,
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+
+    elif update.data=="stats":
+        buttons = [[
+            InlineKeyboardButton('👩‍🦯 Back', callback_data='help'),
+            InlineKeyboardButton('♻️', callback_data='rfrsh')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        total = await Database.count_documents()
+        users = await Database.total_users_count()
+        monsize = await Database.get_db_size()
+        free = 536870912 - monsize
+        monsize = size_formatter(monsize)
+        free = size_formatter(free)
+        await update.message.edit_text(
+            text=script.STATUS_TXT.format(total, users, monsize, free),
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+        
+    elif query.data == "rfrsh":
+        await query.answer("Fetching MongoDb DataBase")
+        buttons = [[
+            InlineKeyboardButton('👩‍🦯 Back', callback_data='help'),
+            InlineKeyboardButton('♻️', callback_data='rfrsh')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        total = await Media.count_documents()
+        users = await db.total_users_count()
+        monsize = await db.get_db_size()
+        free = 536870912 - monsize
+        monsize = get_size(monsize)
+        free = get_size(free)
+        await update.message.edit_text(
+            text=script.STATUS_TXT.format(total, users, monsize, free),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
