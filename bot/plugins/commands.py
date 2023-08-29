@@ -82,7 +82,7 @@ async def start(bot, update):
            ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
-    s=await update.reply_sticker("CAACAgUAAxkBAAEJkGBkol3j73Bwi8aVpDwKfZaALM8XtwACoQADyJRkFOU68dHdpF6XLwQ") #sticker id
+    s=await update.reply_sticker("CAACAgUAAxkBAAEKKFpk7Z_2zmfPq4vX_GROmZqanhB4JAACqAADyJRkFJWi9VCRb0zWMAQ") #sticker id
     await asyncio.sleep(2) #sleep for 2s 
     await s.delete() #sticker delete after 2s
     
@@ -97,12 +97,10 @@ async def start(bot, update):
 @Client.on_message(filters.command(["help"]) & filters.private, group=1)
 async def help(bot, update):
     buttons = [[
-            InlineKeyboardButton("Connect🎛", callback_data='connection'),
-            InlineKeyboardButton("Delete♻", callback_data='delete'),
-            InlineKeyboardButton("Settings⚙️", callback_data='set')
+            InlineKeyboardButton('Stats💹', callback_data='stats')
+
         ],[
-            InlineKeyboardButton('🏡Hᴏᴍᴇ', callback_data='start')
-        ],[
+            InlineKeyboardButton('🏡Hᴏᴍᴇ', callback_data='start'),
             InlineKeyboardButton('🔐Cʟᴏsᴇ', callback_data='close')
         ]]
     
