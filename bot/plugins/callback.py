@@ -1601,7 +1601,7 @@ async def cb_about(bot, update: CallbackQuery):
 
 
 # pm start
-@Client.on_callback_query(filters.regex(r"^(start|help|about|close)$"), group=2)
+@Client.on_callback_query(filters.regex(r"^(start|help|about|stats|close)$"), group=2)
 async def callback_data(bot, update: CallbackQuery):
 
     query_data = update.data
@@ -1626,6 +1626,7 @@ async def callback_data(bot, update: CallbackQuery):
 
 
     elif update.data == "help":
+        await update.answer("Lᴏᴀᴅɪɴɢ...")
         buttons = [[
             InlineKeyboardButton('Stats💹', callback_data='stats')
         ],[
@@ -1642,7 +1643,7 @@ async def callback_data(bot, update: CallbackQuery):
         )
 
     elif update.data == "about":
-        await update.answer("Fetching MongoDb DataBase")
+        await update.answer("Lᴏᴀᴅɪɴɢ...")
         buttons = [[
             InlineKeyboardButton('🏡ʜᴏᴍᴇ', callback_data='start')
         ]]
@@ -1656,17 +1657,18 @@ async def callback_data(bot, update: CallbackQuery):
         )
 
     elif update.data=="stats":
+        await update.answer("Aᴄᴄᴇssɪɴɢ...")
         buttons = [[
             InlineKeyboardButton('👩‍🦯 Back', callback_data='help'),
             InlineKeyboardButton('♻️', callback_data='rfrsh')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         total = await Database.count_documents()
-        users = await Database.total_users_count()
-        monsize = await Database.get_db_size()
+        users = await db.total_users_count()
+        monsize = await db.get_db_size()
         free = 536870912 - monsize
-        monsize = size_formatter(monsize)
-        free = size_formatter(free)
+        monsize = get_size(monsize)
+        free = get_size(free)
         await update.message.edit_text(
             text=script.STATUS_TXT.format(total, users, monsize, free),
             reply_markup=reply_markup,
@@ -1674,13 +1676,13 @@ async def callback_data(bot, update: CallbackQuery):
         )
         
     elif query.data == "rfrsh":
-        await update.answer("Fetching MongoDb DataBase")
+        await update.answer("Aᴄᴄᴇssɪɴɢ...")
         buttons = [[
             InlineKeyboardButton('👩‍🦯 Back', callback_data='help'),
             InlineKeyboardButton('♻️', callback_data='rfrsh')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        total = await Media.count_documents()
+        total = await Database.count_documents()
         users = await db.total_users_count()
         monsize = await db.get_db_size()
         free = 536870912 - monsize
@@ -1693,6 +1695,7 @@ async def callback_data(bot, update: CallbackQuery):
         )
 
     elif update.data == "close":
+        await update.answer("Cʟᴏsɪɴɢ...")
         await update.message.delete()
 
 
@@ -1710,3 +1713,13 @@ def time_formatter(seconds: float) -> str:
         ((str(seconds) + "s") if seconds else "")
     return tmp
 
+def get_size(size):
+    """Get size in readable format"""
+
+    units = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB"]
+    size = float(size)
+    i = 0
+    while size >= 1024.0 and i < len(units):
+        i += 1
+        size /= 1024.0
+    return "%.2f %s" % (size, units[i])
