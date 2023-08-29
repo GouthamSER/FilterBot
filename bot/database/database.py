@@ -8,7 +8,6 @@ class Singleton(type):
     def __call__(cls, *args, **kwargs):
         if cls not in cls.__instances__:
             cls.__instances__[cls] = super(Singleton, cls).__call__(*args, **kwargs)
-db = Database(DATABASE_URI, DATABASE_NAME)
         return cls.__instances__[cls]
 
 class Database(metaclass=Singleton):
