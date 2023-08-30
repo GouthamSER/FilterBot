@@ -98,7 +98,7 @@ async def start(bot, update):
     )
     return
 
-@Client.on_message(filters.command("startgroup") & filters.incoming)
+@Client.on_message(filters.command("startgroup")
 async def start(bot, message):
 # GROUP START FN()
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
@@ -148,3 +148,27 @@ async def about(bot, update):
         parse_mode=enums.ParseMode.HTML,
         reply_to_message_id=update.id
     )
+@Client.on_message(filters.command(["stats"]) & filters.private, group=1)
+async def help(bot, update):
+        total = await db.count_documents()
+        users = await db.total_users_count()
+        chats = await db.total_chat_count()
+        monsize = await db.get_db_size()
+        free = 536870912 - monsize
+        monsize = get_size(monsize)
+        free = get_size(free)
+        await update.message.edit_text(
+            text=script.STATUS_TXT.format(total, users, monsize, free),
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
+        )
+def get_size(size):
+    """Get size in readable format"""
+
+    units = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB"]
+    size = float(size)
+    i = 0
+    while size >= 1024.0 and i < len(units):
+        i += 1
+        size /= 1024.0
+    return "%.2f %s" % (size, units[i])
