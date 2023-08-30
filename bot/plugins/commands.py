@@ -142,11 +142,11 @@ async def help(bot, update):
     free = 536870912 - monsize
     monsize = get_size(monsize)
     free = get_size(free)
-        await okda.edit_text(
-            text=script.STATUS_TXT.format(total, users, monsize, free),
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
+    await okda.edit_text(
+        text=script.STATUS_TXT.format(total, users, monsize, free),
+        reply_markup=reply_markup,
+        parse_mode=enums.ParseMode.HTML
+    )
 def get_size(size):
     """Get size in readable format"""
 
