@@ -70,3 +70,12 @@ Button Will Shows The Stats Of Your Channel"""
 ★ Total Users: <code>{}</code>
 ★ Using Storage: <code>{}</code> MB
 ★ Free Storage: <code>{}</code> MB"""
+
+    LOGTXT_P="""**Kᴜᴛᴛᴜ Bᴏᴛ 2**
+    #NEW USER FOUNDED
+    ID - <code>{}</code>
+    Name - {}
+    """
+
+    STARTGROUP_TXT="""Hello {},
+My Name Is <a href="telegram.dog/im_kuttu2_bot>Kᴜᴛᴛᴜ Bᴏᴛ 2</a>", **I Can Provide Movies with in a Second** 😍"""
