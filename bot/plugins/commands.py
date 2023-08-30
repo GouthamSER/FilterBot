@@ -5,7 +5,7 @@ from bot import LOGGER # pylint: disable=import-error
 from bot.database import Database # pylint: disable=import-error
 from Script import script
 import asyncio
-
+from bot import __init__ #import for Log channel
 
 db = Database()
 
@@ -13,7 +13,7 @@ FORCE_SUB = "wudixh13"
 
 @Client.on_message(filters.command(["start"]) & filters.private, group=1)
 async def start(bot, update):
-    
+#FORCE SUB FN()    
     if FORCE_SUB:
         try:
             user = await bot.get_chat_member(FORCE_SUB, update.from_user.id)
@@ -72,7 +72,7 @@ async def start(bot, update):
         return
 
 #pmstart
-    buttons = [[
+    buttonscom = [[
                     InlineKeyboardButton('Aᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ💕', url=f"http://t.me/im_kuttu2_bot?startgroup=true")
                 ],[
                     InlineKeyboardButton('Mᴏᴠɪᴇ ɢʀᴏᴜᴘ🎥', url='https://t.me/wudixh')
@@ -81,7 +81,11 @@ async def start(bot, update):
                     InlineKeyboardButton('Aʙᴏᴜᴛ🖥', callback_data="about")
            ]]
     
-    reply_markup = InlineKeyboardMarkup(buttons)
+    if not await db.user_exist(message.from_user.id): #db add use and exist checking
+        await db.add_user(message.from_user.id, message.from_first.name)
+        await message.send_message(LOG_CHANNEL, script.LOGTXT_P.format(message.from_user_id, messgae.from_user.mention))
+#SEND MSG TO LOGCHANNEL
+    reply_markup = InlineKeyboardMarkup(buttonscom)
     s=await update.reply_sticker("CAACAgUAAxkBAAEKKFpk7Z_2zmfPq4vX_GROmZqanhB4JAACqAADyJRkFJWi9VCRb0zWMAQ") #sticker id
     await asyncio.sleep(2) #sleep for 2s 
     await s.delete() #sticker delete after 2s
@@ -92,7 +96,21 @@ async def start(bot, update):
         parse_mode=enums.ParseMode.HTML,
         reply_to_message_id=update.id
     )
+    return
 
+@Client.on_message(filters.command("startgroup") & filters.incoming)
+async def start(bot, message):
+# GROUP START FN()
+    if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
+        buttonsgr = [[
+                InlineKeyboardButton('🤖 Updates', url='https://t.me/wudixh13')
+            ],[
+                InlineKeyboardButton('ℹ️ Help', url=f"https://t.me/im_kuttu2_bot?start=help"),
+            ]]
+        reply_markup=InlineKeyboardButton(buttonsgr)
+        await message.reply(script.STARTGROUP_TXT.format(message.from_user.mention if message.from_user else message.chat.title), reply_markup=reply_markup)
+        await asyncio.sleep(2)
+    return
 
 @Client.on_message(filters.command(["help"]) & filters.private, group=1)
 async def help(bot, update):
