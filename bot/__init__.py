@@ -21,6 +21,8 @@ DATABASE_NAME=os.environ.get("DATABASE_NAME")
 
 COLLECTION_NAME=os.environ.get("COLLECTION_NAME")
 
+LOG_CHANNEL=os.envirom.get("LOG_CHANNEL")
+
 VERIFY = {}
 
 logging.basicConfig(
