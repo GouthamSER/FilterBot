@@ -136,13 +136,13 @@ async def about(bot, update):
     )
 @Client.on_message(filters.command(["stats"]) & filters.private, group=1)
 async def help(bot, update):
-        total = await db.count_documents()
-        users = await db.total_users_count()
-        monsize = await db.get_db_size()
-        free = 536870912 - monsize
-        monsize = get_size(monsize)
-        free = get_size(free)
-        await update.message.edit_text(
+    okda = await message.reply('Fetching stats..')
+    users = await db.total_users_count()
+    monsize = await db.get_db_size()
+    free = 536870912 - monsize
+    monsize = get_size(monsize)
+    free = get_size(free)
+        await okda.edit_text(
             text=script.STATUS_TXT.format(total, users, monsize, free),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
