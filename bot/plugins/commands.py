@@ -99,7 +99,7 @@ async def start(bot, update):
     return
 
 @Client.on_message(filters.command("startgroup")
-async def start(bot, message):
+async def startgroup(bot, message):
 # GROUP START FN()
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
         buttonsgr = [[
@@ -152,7 +152,6 @@ async def about(bot, update):
 async def help(bot, update):
         total = await db.count_documents()
         users = await db.total_users_count()
-        chats = await db.total_chat_count()
         monsize = await db.get_db_size()
         free = 536870912 - monsize
         monsize = get_size(monsize)
