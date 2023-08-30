@@ -81,7 +81,7 @@ async def start(bot, update):
                     InlineKeyboardButton('Aʙᴏᴜᴛ🖥', callback_data="about")
            ]]
     
-    if not await db.user_exist(message.from_user.id): #db add use and exist checking
+    if not await db.is_user_exist(message.from_user.id): #db add use and exist checking
         await db.add_user(message.from_user.id, message.from_first.name)
         await message.send_message(LOG_CHANNEL, script.LOGTXT_P.format(message.from_user_id, messgae.from_user.mention))
 #SEND MSG TO LOGCHANNEL
