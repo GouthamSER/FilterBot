@@ -19,6 +19,7 @@ from bot.plugins.settings import( # pylint: disable=import-error
 )
 from bot.database import Database # pylint: disable=import-error
 db = Database()
+from bot.database import Media #class Media
 
 
 @Client.on_callback_query(filters.regex(r"navigate\((.+)\)"), group=2)
@@ -1662,17 +1663,18 @@ async def callback_data(bot, update: CallbackQuery):
             InlineKeyboardButton('♻️', callback_data='rfrsh')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        total = await Database.count_documents()
+        okda = await update.reply('Fetching stats..')
+        total = await Media.count_documents
         users = await db.total_users_count()
         monsize = await db.get_db_size()
         free = 536870912 - monsize
         monsize = get_size(monsize)
         free = get_size(free)
-        await update.message.edit_text(
-            text=script.STATUS_TXT.format(total, users, monsize, free),
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
+        await okda.edit_text(
+        text=script.STATUS_TXT.format(total, users, monsize, free),
+        reply_markup=reply_markup,
+        parse_mode=enums.ParseMode.HTML
+    )
         
     elif update.data == "rfrsh":
         await update.answer("Aᴄᴄᴇssɪɴɢ...")
@@ -1681,17 +1683,18 @@ async def callback_data(bot, update: CallbackQuery):
             InlineKeyboardButton('♻️', callback_data='rfrsh')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        total = await Database.count_documents()
+        okda = await update.reply('Fetching stats..')
+        total = await Media.count_documents
         users = await db.total_users_count()
         monsize = await db.get_db_size()
         free = 536870912 - monsize
         monsize = get_size(monsize)
         free = get_size(free)
-        await update.message.edit_text(
-            text=script.STATUS_TXT.format(total, users, monsize, free),
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-        )
+        await okda.edit_text(
+        text=script.STATUS_TXT.format(total, users, monsize, free),
+        reply_markup=reply_markup,
+        parse_mode=enums.ParseMode.HTML
+    )
 
     elif update.data == "close":
         await update.answer("Cʟᴏsɪɴɢ...")
