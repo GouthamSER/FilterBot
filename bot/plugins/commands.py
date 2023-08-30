@@ -97,21 +97,7 @@ async def start(bot, update):
         reply_to_message_id=update.id
     )
     return
-
-@Client.on_message(filters.command("startgroup")
-async def startgroup(bot, message):
-# GROUP START FN()
-    if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
-        buttonsgr = [[
-                InlineKeyboardButton('🤖 Updates', url='https://t.me/wudixh13')
-            ],[
-                InlineKeyboardButton('ℹ️ Help', url=f"https://t.me/im_kuttu2_bot?start=help"),
-            ]]
-        reply_markup=InlineKeyboardButton(buttonsgr)
-        await message.reply(script.STARTGROUP_TXT.format(message.from_user.mention if message.from_user else message.chat.title), reply_markup=reply_markup)
-        await asyncio.sleep(2)
-    return
-
+    
 @Client.on_message(filters.command(["help"]) & filters.private, group=1)
 async def help(bot, update):
     buttons = [[
