@@ -6,7 +6,7 @@ from bot.database import Database # pylint: disable=import-error
 from Script import script
 import asyncio
 from bot import __init__ #import for Log channel
-
+from bot.database import Media #class
 db = Database()
 
 FORCE_SUB = "wudixh13"
@@ -137,7 +137,7 @@ async def about(bot, update):
 @Client.on_message(filters.command(["stats"]) & filters.private, group=1)
 async def help(bot, update):
     okda = await update.reply('Fetching stats..')
-    total = await Database.count_documents
+    total = await Media.count_documents
     users = await db.total_users_count()
     monsize = await db.get_db_size()
     free = 536870912 - monsize
