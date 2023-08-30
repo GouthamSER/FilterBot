@@ -136,7 +136,7 @@ async def about(bot, update):
     )
 @Client.on_message(filters.command(["stats"]) & filters.private, group=1)
 async def help(bot, update):
-    okda = await message.reply('Fetching stats..')
+    okda = await update.reply('Fetching stats..')
     users = await db.total_users_count()
     monsize = await db.get_db_size()
     free = 536870912 - monsize
