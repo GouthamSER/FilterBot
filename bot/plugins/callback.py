@@ -18,7 +18,6 @@ from bot.plugins.settings import( # pylint: disable=import-error
     remove_emoji
 )
 from bot.database import Database # pylint: disable=import-error
-from bot.database import db # pylint: disable=import-error
 db = Database()
 
 
