@@ -75,7 +75,6 @@ class Media:
       
     async def get_banned(self):
         users = self.col.find({'ban_status.is_banned': True})
-        b_chats = [chat['id'] async for chat in chats]
         b_users = [user['id'] async for user in users]
         return b_users
 
@@ -83,4 +82,4 @@ class Media:
         return (await self.db.command("dbstats"))['dataSize']
 
 
-db = Database(DATABASE_URI, DATABASE_NAME)
+db = Media(DATABASE_URI, DATABASE_NAME)
