@@ -6,7 +6,6 @@ from bot.database import Database # pylint: disable=import-error
 from Script import script
 import asyncio
 from bot import __init__ #import for Log channel
-from bot.database import Media #class
 db = Database()
 import os
 
