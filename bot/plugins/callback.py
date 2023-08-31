@@ -18,8 +18,8 @@ from bot.plugins.settings import( # pylint: disable=import-error
     remove_emoji
 )
 from bot.database import Database # pylint: disable=import-error
-db = Database()
-from bot.database import Media #class Media
+
+from bot.database import db #class db
 
 
 @Client.on_callback_query(filters.regex(r"navigate\((.+)\)"), group=2)
@@ -1663,7 +1663,7 @@ async def callback_data(bot, update: CallbackQuery):
             InlineKeyboardButton('♻️', callback_data='rfrsh')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        okda = await update.reply_text(
+        await update.reply_text(
             text='Fetching stats..'
         )
         users = await db.total_users_count()
@@ -1671,7 +1671,7 @@ async def callback_data(bot, update: CallbackQuery):
         free = 536870912 - monsize
         monsize = get_size(monsize)
         free = get_size(free)
-        await okda.edit_text(
+        await update.message.edit_text(
         text=script.STATUS_TXT.format(users, monsize, free),
         reply_markup=reply_markup,
         parse_mode=enums.ParseMode.HTML
@@ -1684,7 +1684,7 @@ async def callback_data(bot, update: CallbackQuery):
             InlineKeyboardButton('♻️', callback_data='rfrsh')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        okda = await update.reply_text(
+        await update.reply_text(
             text='Fetching stats..'
         )
         users = await db.total_users_count()
@@ -1692,7 +1692,7 @@ async def callback_data(bot, update: CallbackQuery):
         free = 536870912 - monsize
         monsize = get_size(monsize)
         free = get_size(free)
-        await okda.edit_text(
+        await update.messages.edit_text(
         text=script.STATUS_TXT.format(users, monsize, free),
         reply_markup=reply_markup,
         parse_mode=enums.ParseMode.HTML
