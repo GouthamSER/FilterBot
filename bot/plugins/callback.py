@@ -1663,15 +1663,16 @@ async def callback_data(bot, update: CallbackQuery):
             InlineKeyboardButton('♻️', callback_data='rfrsh')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        okda = await update.reply('Fetching stats..')
-        total = await Media.count_documents
+        okda = await update.reply_text(
+            text='Fetching stats..'
+        )
         users = await db.total_users_count()
         monsize = await db.get_db_size()
         free = 536870912 - monsize
         monsize = get_size(monsize)
         free = get_size(free)
         await okda.edit_text(
-        text=script.STATUS_TXT.format(total, users, monsize, free),
+        text=script.STATUS_TXT.format(users, monsize, free),
         reply_markup=reply_markup,
         parse_mode=enums.ParseMode.HTML
     )
@@ -1683,15 +1684,16 @@ async def callback_data(bot, update: CallbackQuery):
             InlineKeyboardButton('♻️', callback_data='rfrsh')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        okda = await update.reply('Fetching stats..')
-        total = await Media.count_documents
+        okda = await update.reply_text(
+            text='Fetching stats..'
+        )
         users = await db.total_users_count()
         monsize = await db.get_db_size()
         free = 536870912 - monsize
         monsize = get_size(monsize)
         free = get_size(free)
         await okda.edit_text(
-        text=script.STATUS_TXT.format(total, users, monsize, free),
+        text=script.STATUS_TXT.format(users, monsize, free),
         reply_markup=reply_markup,
         parse_mode=enums.ParseMode.HTML
     )
