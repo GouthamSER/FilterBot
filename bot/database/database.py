@@ -3,11 +3,21 @@ import motor.motor_asyncio # pylint: disable=import-error
 from bot import DATABASE_URI, DATABASE_NAME, COLLECTION_NAME # pylint: disable=import-error
 
 
-class Database():
+class Singleton(type):
+    __instances__ = {}
 
-    def __init__(self, uri, database_name):
-        self._client = motor.motor_asyncio.AsyncIOMotorClient(uri)
-        self.db = self._client[database_name]
+    def __call__(cls, *args, **kwargs):
+        if cls not in cls.__instances__:
+            cls.__instances__[cls] = super(Singleton, cls).__call__(*args, **kwargs)
+
+        return cls.__instances__[cls]
+
+
+class Database(metaclass=Singleton):
+
+    def __init__(self):
+        self._client = motor.motor_asyncio.AsyncIOMotorClient(DATABASE_URI)
+        self.db = self._client[DATABASE_NAME]
         self.col = self.db["Main"]
         self.acol = self.db["Active_Chats"]
         self.fcol = self.db[COLLECTION_NAME]
@@ -75,9 +85,7 @@ class Database():
         return b_users
 
     async def get_db_size(self):
-        return (await self.db.command("dbstats"))['dataSize']
-
-db = Database(DATABASE_URI, DATABASE_NAME)    
+        return (await self.db.command("dbstats"))['dataSize']   
 
     async def create_index(self):
         """
