@@ -14,11 +14,7 @@ class Database()
         self.ucol = self.db["Users"]
         self.cache = {}
         self.acache = {}
-    def __init__(self, uri, database_name):
-        self._client = motor.motor_asyncio.AsyncIOMotorClient(uri)
-        self.db = self._client[database_name]
-        self.col = self.db.users
-
+            
 
     def new_user(self, id, name):
         return dict(
@@ -35,7 +31,7 @@ class Database()
         await self.ucol.insert_one(user)
     
     async def is_user_exist(self, id):
-        user = await self.col.find_one({'id':int(id)})
+        user = await self.ucol.find_one({'id':int(id)})
         return bool(user)
     
     async def total_users_count(self):
