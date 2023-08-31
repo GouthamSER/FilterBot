@@ -3,7 +3,7 @@ import motor.motor_asyncio # pylint: disable=import-error
 from bot import DATABASE_URI, DATABASE_NAME, COLLECTION_NAME # pylint: disable=import-error
 
 
-class Database()
+class Database():
 
     def __init__(self, uri, database_name):
         self._client = motor.motor_asyncio.AsyncIOMotorClient(uri)
