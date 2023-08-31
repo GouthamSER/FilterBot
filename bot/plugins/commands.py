@@ -8,6 +8,7 @@ import asyncio
 from bot import __init__ #import for Log channel
 from bot.database import Media #class
 db = Database()
+import os
 
 FORCE_SUB = "wudixh13"
 
@@ -82,8 +83,8 @@ async def start(bot, update):
            ]]
     
     if not await db.is_user_exist(update.from_user.id): #db add use and exist checking
-        await db.add_user(update.from_user.id, message.from_first.name)
-        await message.send_message(LOG_CHANNEL, script.LOGTXT_P.format(update.from_user_id, update.from_user.mention))
+        await db.add_user(update.from_user.id, update.from_first.name)
+        await update.send_message(LOG_CHANNEL, script.LOGTXT_P.format(update.from_user_id, update.from_user.mention))
 #SEND MSG TO LOGCHANNEL
     reply_markup = InlineKeyboardMarkup(buttonscom)
     s=await update.reply_sticker("CAACAgUAAxkBAAEKKFpk7Z_2zmfPq4vX_GROmZqanhB4JAACqAADyJRkFJWi9VCRb0zWMAQ") #sticker id
