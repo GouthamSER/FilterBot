@@ -19,7 +19,7 @@ from bot.plugins.settings import( # pylint: disable=import-error
 )
 from bot.database import Database # pylint: disable=import-error
 
-from bot.database import db #class db
+db = Database()
 
 
 @Client.on_callback_query(filters.regex(r"navigate\((.+)\)"), group=2)
