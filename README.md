@@ -1,15 +1,12 @@
 <h1>Adv Auto Filter Bot V2</h1>
 
 <p align="center">
-  <a href="https://github.com/GouthamSER/S-A-F/stargazers">
-    <img src="">
+  <a href="https://github.com/GouthamSER"><img src="https://imgs.search.brave.com/4q8lmA15PZCQXekNyHlYocX-y1w15z9r9bMNxO-RFqE/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9jZG4u/cGl4YWJheS5jb20v/cGhvdG8vMjAyMy8w/Mi8wNS8xNy8zMy9h/aS1nZW5lcmF0ZWQt/Nzc3MDA1NV82NDAu/anBn">
 
   </a>
   
-  <a href="https://github.com/GouthamSER/S-A-F/fork">
-    <img src="https://img.shields.io/github.com/GouthamSER/S-A-F?label=Fork&style=social">
-
-  </a>  
+  <a href="https://github.com/GouthamSER/S-A-F/fork"><img src="https://img.shields.io/github.com/GouthamSER/S-A-F?label=Fork&style=social">
+</a>  
 </p>
 
 __This Is Just An Simple Advance Auto Filter Bot Complete Rewritten IN PYTHON__
@@ -68,11 +65,12 @@ OR
 ## Deploy
 You can deploy this bot anywhere.
 
-
-<a href="https://app.koyeb.com/deploy?type=git&repository=github.com/GouthamSER/FilterBot&env[BOT_TOKEN]&env[API_ID]&env[API_HASH]&env[CHANNELS]&env[ADMINS]&env[PICS]&env[LOG_CHANNEL]&env[AUTH_CHANNEL]&env[CUSTOM_FILE_CAPTION]&env[DATABASE_URI]&env[DATABASE_NAME]&env[COLLECTION_NAME]=Telegram_files&env[FILE_CHANNEL]=-1001832732995&env[SUPPORT_CHAT]&env[IMDB]=True&env[IMDB_TEMPLATE]&env[SINGLE_BUTTON]=True&env[AUTH_GROUPS]&env[P_TTI_SHOW_OFF]=True&branch=main&name=telegrambot">
- <img src="https://www.koyeb.com/static/images/deploy/button.svg">
-
 <i>**[Watch Deploying Tutorial...](https://youtu.be/@im_goutham_josh)**</i>
+
+<details><summary>Deploy to Koyeb</summary>
+<a href="https://app.koyeb.com/deploy?type=git&repository=github.com/GouthamSER/FilterBot&env[BOT_TOKEN]&env[API_ID]&env[API_HASH]&env[CHANNELS]&env[ADMINS]&env[DATABASE_URI]&env[DATABASE_NAME]&env[COLLECTION_NAME]=Telegram_files&branch=main&name=kuttu2bot"><img src="https://www.koyeb.com/static/images/deploy/button.svg">
+</a>
+</details>
 
 <details><summary>Deploy To Heroku</summary>
 <p>
