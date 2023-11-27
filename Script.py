@@ -41,22 +41,13 @@ Request Yourself...!! ✔
 © Kuttu Bot
 """
 
-    CONNECT_TXT = """<code> /add </code>
-channel id or username
-Connect a Channel TO add Movies and Series
-eg-<code>channel id or username</code>
+    CONFIG_TXT = """1.ᴀᴅᴅ ᴄʜᴀɴɴᴇʟ ᴛᴏ ᴅʙ ᴛᴏ sᴀᴠᴇ ᴍᴏᴠɪᴇs ᴀɴᴅ sᴇʀɪᴇs
+<code>/add</code> ᴄʜᴀɴɴᴇʟ ɪᴅ ᴏʀ(ʟɪɴᴋ) ɪɴ ɢʀᴏᴜᴘ
+2.Tᴏ ᴅɪsᴄᴏɴɴᴇᴄᴛ A Gʀᴏᴜᴘ Wɪᴛʜ A Cʜᴀɴɴᴇʟ, ᴅᴇʟᴇᴛᴇ ғɪʟᴇs ɪɴ ᴅʙ
+<code>/del</code> @username
+3.<code>/settings</code> Dɪsᴘʟᴀʏ Yᴏᴜ A Sᴇᴛᴛɪɴɢs Pᴀɴᴇʟ
+Bᴜᴛᴛᴏɴ Wɪʟʟ Sʜᴏᴡ Yᴏᴜ Aʟʟ Tʜᴇ Cᴏɴɴᴇᴄᴛᴇᴅ Cʜᴀᴛs Wɪᴛʜ Tʜᴇ Gʀᴏᴜᴘ
 """
 
-    DELETE_TXT = """<code>/del chat_id</code>
-To disconnect A Group With A Channel
-or
-<code>/del @Username</code>
-<code>/delall</code>
-This Command Will Disconnect All Connected Channel With The Group And Deletes All Its File From DB"""
 
-    SETTINGS_TXT = """<code>/settings</code>
-This Command Will Display You A Settings Pannel Instance Which Can Be Used To Tweek Bot's Settings Accordingly
-<code>Channel</code>
-Button Will Show You All The Connected Chats With The Group And Will Show Buttons Correspnding To There Order For Furthur Controls
-"""
     RESULT_TXT = """Hᴇʀᴇ Is Wʜᴀᴛ I Fᴏᴜɴᴅ Fᴏʀ Yᴏᴜʀ Sᴇaʀᴄʜ"""
