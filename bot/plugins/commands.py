@@ -80,11 +80,7 @@ async def start(bot, update):
                     InlineKeyboardButton('Hᴇʟᴘ🔧', callback_data="help"),
                     InlineKeyboardButton('Aʙᴏᴜᴛ🖥', callback_data="about")
            ]]
-    
-    if not await db.is_user_exist(update.from_user.id): #db add use and exist checking
-        await db.add_user(update.from_user.id, update.from_first.name)
-        await update.send_message(LOG_CHANNEL, script.LOGTXT_P.format(update.from_user_id, update.from_user.mention))
-#SEND MSG TO LOGCHANNEL
+
     reply_markup = InlineKeyboardMarkup(buttonscom)
     s=await update.reply_sticker("CAACAgUAAxkBAAEKKFpk7Z_2zmfPq4vX_GROmZqanhB4JAACqAADyJRkFJWi9VCRb0zWMAQ") #sticker id
     await asyncio.sleep(2) #sleep for 2s 
@@ -101,7 +97,7 @@ async def start(bot, update):
 @Client.on_message(filters.command(["help"]) & filters.private, group=1)
 async def help(bot, update):
     buttons = [[
-            InlineKeyboardButton('Stats💹', callback_data='stats')
+            InlineKeyboardButton('Configs⚙', callback_data='stats')
 
         ],[
             InlineKeyboardButton('🏡Hᴏᴍᴇ', callback_data='start'),
@@ -134,26 +130,3 @@ async def about(bot, update):
         parse_mode=enums.ParseMode.HTML,
         reply_to_message_id=update.id
     )
-@Client.on_message(filters.command(["stats"]) & filters.private, group=1)
-async def help(bot, update):
-    okda = await update.reply('Fetching stats..')
-    users = await db.total_users_count()
-    monsize = await db.get_db_size()
-    free = 536870912 - monsize
-    monsize = get_size(monsize)
-    free = get_size(free)
-    await okda.edit_text(
-        text=script.STATUS_TXT.format(users, monsize, free),
-        reply_markup=reply_markup,
-        parse_mode=enums.ParseMode.HTML
-    )
-def get_size(size):
-    """Get size in readable format"""
-
-    units = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB"]
-    size = float(size)
-    i = 0
-    while size >= 1024.0 and i < len(units):
-        i += 1
-        size /= 1024.0
-    return "%.2f %s" % (size, units[i])
