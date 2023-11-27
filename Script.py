@@ -40,20 +40,12 @@ Request Yourself...!! ✔
 
 © Kuttu Bot
 """
-    CONNECTION_TXT = """<code> /add </code>
+
+    CONFIGS_TXT = """<code> /add </code>
 channel id or username
 Connect a Channel TO add Movies and Series
 eg-<code>channel id or username</code>
-"""
-
-    DELETE_TXT = """<code>/del chat_id</code>
-To disconnect A Group With A Channel
-or
-<code>/del @Username</code>
-<code>/delall</code>
-This Command Will Disconnect All Connected Channel With The Group And Deletes All Its File From DB"""
-
-    SETTING_TXT = """<code>/settings</code>
+<code>/settings</code>
 This Command Will Display You A Settings Pannel Instance Which Can Be Used To Tweek Bot's Settings Accordingly
 <code>Channel</code>
 Button Will Show You All The Connected Chats With The Group And Will Show Buttons Correspnding To There Order For Furthur Controls           
@@ -62,20 +54,13 @@ Button Will Show You The 3 Filter Option Available In Bot... Pressing Each Butto
 <code>Configure</code>
 Button Will Helps You To Change No. of Pages/ Buttons Per Page/ Total Result Without Acutally Editing The Repo... Also It Provide Option To Enable/Disable For Showing Invite Link In Each Results
 <code>Status</code>
-Button Will Shows The Stats Of Your Channel"""
+Button Will Shows The Stats Of Your Channel
+<code>/del chat_id</code>
+To disconnect A Group With A Channel
+or
+<code>/del @Username</code>
+<code>/delall</code>
+This Command Will Disconnect All Connected Channel With The Group And Deletes All Its File From DB"""
 
     RESULT_TXT = """Hᴇʀᴇ Is Wʜᴀᴛ I Fᴏᴜɴᴅ Fᴏʀ Yᴏᴜʀ Sᴇaʀᴄʜ
 """
-    STATUS_TXT = """★ Total Files: <code>{}</code>
-★ Total Users: <code>{}</code>
-★ Using Storage: <code>{}</code> MB
-★ Free Storage: <code>{}</code> MB"""
-
-    LOGTXT_P="""**Kᴜᴛᴛᴜ Bᴏᴛ 2**
-    #NEW USER FOUNDED
-    ID - <code>{}</code>
-    Name - {}
-    """
-
-    STARTGROUP_TXT="""Hello {},
-My Name Is <a href="telegram.dog/im_kuttu2_bot>Kᴜᴛᴛᴜ Bᴏᴛ 2</a>", **I Can Provide Movies with in a Second** 😍"""
