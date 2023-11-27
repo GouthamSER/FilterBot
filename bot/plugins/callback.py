@@ -1628,7 +1628,7 @@ async def callback_data(bot, update: CallbackQuery):
     elif update.data == "help":
         await update.answer("Lᴏᴀᴅɪɴɢ...")
         buttons = [[
-            InlineKeyboardButton('Stats💹', callback_data='stats')
+            InlineKeyboardButton('Configs⚙', callback_data='configs')
         ],[
             InlineKeyboardButton('🏡Hᴏᴍᴇ', callback_data='start'),
             InlineKeyboardButton('🔐Cʟᴏsᴇ', callback_data='close')
@@ -1656,47 +1656,15 @@ async def callback_data(bot, update: CallbackQuery):
             parse_mode=enums.ParseMode.HTML
         )
 
-    elif update.data=="stats":
+    elif update.data=="configs":
         await update.answer("Aᴄᴄᴇssɪɴɢ...")
         buttons = [[
-            InlineKeyboardButton('👩‍🦯 Back', callback_data='help'),
-            InlineKeyboardButton('♻️', callback_data='rfrsh')
+            InlineKeyboardButton('👩‍🦯 Back', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await update.reply_text(
-            text='Fetching stats..'
+            text=script.CONFIGS_TXT
         )
-        users = await db.total_users_count()
-        monsize = await db.get_db_size()
-        free = 536870912 - monsize
-        monsize = get_size(monsize)
-        free = get_size(free)
-        await update.message.edit_text(
-        text=script.STATUS_TXT.format(users, monsize, free),
-        reply_markup=reply_markup,
-        parse_mode=enums.ParseMode.HTML
-    )
-        
-    elif update.data == "rfrsh":
-        await update.answer("Aᴄᴄᴇssɪɴɢ...")
-        buttons = [[
-            InlineKeyboardButton('👩‍🦯 Back', callback_data='help'),
-            InlineKeyboardButton('♻️', callback_data='rfrsh')
-        ]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await update.reply_text(
-            text='Fetching stats..'
-        )
-        users = await db.total_users_count()
-        monsize = await db.get_db_size()
-        free = 536870912 - monsize
-        monsize = get_size(monsize)
-        free = get_size(free)
-        await update.messages.edit_text(
-        text=script.STATUS_TXT.format(users, monsize, free),
-        reply_markup=reply_markup,
-        parse_mode=enums.ParseMode.HTML
-    )
 
     elif update.data == "close":
         await update.answer("Cʟᴏsɪɴɢ...")
@@ -1716,14 +1684,3 @@ def time_formatter(seconds: float) -> str:
         ((str(minutes) + "m, ") if minutes else "") + \
         ((str(seconds) + "s") if seconds else "")
     return tmp
-
-def get_size(size):
-    """Get size in readable format"""
-
-    units = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB"]
-    size = float(size)
-    i = 0
-    while size >= 1024.0 and i < len(units):
-        i += 1
-        size /= 1024.0
-    return "%.2f %s" % (size, units[i])
