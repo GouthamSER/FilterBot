@@ -1628,7 +1628,10 @@ async def callback_data(bot, update: CallbackQuery):
     elif update.data == "help":
         await update.answer("Lᴏᴀᴅɪɴɢ...")
         buttons = [[
-            InlineKeyboardButton('Configs⚙', callback_data='configs')
+            InlineKeyboardButton('Connections⚙', callback_data='con'),
+            InlineKeyboardButton('Delete♻', callback_data='del'),
+            InlineKeyboardButton('Settings🛠', callback_data='set')
+            
         ],[
             InlineKeyboardButton('🏡Hᴏᴍᴇ', callback_data='start'),
             InlineKeyboardButton('🔐Cʟᴏsᴇ', callback_data='close')
@@ -1656,14 +1659,32 @@ async def callback_data(bot, update: CallbackQuery):
             parse_mode=enums.ParseMode.HTML
         )
 
-    elif update.data=="configs":
+    elif update.data=="con":
         await update.answer("Aᴄᴄᴇssɪɴɢ...")
         buttons = [[
             InlineKeyboardButton('👩‍🦯 Back', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await update.message.edit(
-            text=script.CONFIGS_TXT
+            text=script.CONNECT_TXT
+        )
+    elif update.data=="del":
+        await update.answer("Aᴄᴄᴇssɪɴɢ...")
+        buttons = [[
+            InlineKeyboardButton('👩‍🦯 Back', callback_data='help')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await update.message.edit(
+            text=script.DELETE_TXT
+        )
+    elif update.data=="set":
+        await update.answer("Aᴄᴄᴇssɪɴɢ...")
+        buttons = [[
+            InlineKeyboardButton('👩‍🦯 Back', callback_data='help')
+        ]]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await update.message.edit(
+            text=script.SETTINGS_TXT
         )
 
     elif update.data == "close":
