@@ -82,7 +82,7 @@ async def start(bot, update):
            ]]
 
     reply_markup = InlineKeyboardMarkup(buttonscom)
-    s=await update.reply_sticker("CAACAgUAAxkBAAEKKFpk7Z_2zmfPq4vX_GROmZqanhB4JAACqAADyJRkFJWi9VCRb0zWMAQ") #sticker id
+    s=await update.reply_sticker("CAACAgUAAxkBAAEK1F5lZIxPat45EenEwdaHKT-5dp_8HgACiwUAAn3d6Va3WZ2LySsnbTME") #sticker id
     await asyncio.sleep(2) #sleep for 2s 
     await s.delete() #sticker delete after 2s
     
