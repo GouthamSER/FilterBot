@@ -1601,16 +1601,16 @@ async def cb_about(bot, update: CallbackQuery):
 
 
 # pm start
-@Client.on_callback_query(filters.regex(r"^(start|help|about|stats|close)$"), group=2)
+@Client.on_callback_query(filters.regex(r"^(start|help|about|configs|close)$"), group=2)
 async def callback_data(bot, update: CallbackQuery):
 
     query_data = update.data
 
     if update.data == "start":
         buttons = [[
-                    InlineKeyboardButton('Aᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ💕', url=f"http://t.me/im_kuttu2_bot?startgroup=true")
+                    InlineKeyboardButton('↖Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ↗', url=f"http://t.me/im_kuttu2_bot?startgroup=true")
                 ],[
-                    InlineKeyboardButton('Mᴏᴠɪᴇ ɢʀᴏᴜᴘ🎥', url='https://t.me/wudixh')
+                    InlineKeyboardButton('Mᴏᴠɪᴇ Gʀᴏᴜᴘ🎥', url='https://t.me/wudixh')
                 ],[
                     InlineKeyboardButton('Hᴇʟᴘ🔧', callback_data="help"),
                     InlineKeyboardButton('Aʙᴏᴜᴛ🖥', callback_data="about")
@@ -1645,7 +1645,7 @@ async def callback_data(bot, update: CallbackQuery):
     elif update.data == "about":
         await update.answer("Lᴏᴀᴅɪɴɢ...")
         buttons = [[
-            InlineKeyboardButton('🏡ʜᴏᴍᴇ', callback_data='start')
+            InlineKeyboardButton('🏡Hᴏᴍᴇ', callback_data='start')
         ]]
         
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -1662,7 +1662,7 @@ async def callback_data(bot, update: CallbackQuery):
             InlineKeyboardButton('👩‍🦯 Back', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await update.reply_text(
+        await update.message.edit(
             text=script.CONFIGS_TXT
         )
 
