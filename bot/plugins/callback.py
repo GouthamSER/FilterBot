@@ -1664,7 +1664,7 @@ async def callback_data(bot, update: CallbackQuery):
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await update.message.edit(
-            text=script.CONFIG_TXT
+            text=script.CONFIG_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
