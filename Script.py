@@ -41,7 +41,7 @@ Request Yourself...!! ✔
 © Kuttu Bot
 """
 
-    CONNECTION_TXT = """<code> /add </code>
+    CONNECT_TXT = """<code> /add </code>
 channel id or username
 Connect a Channel TO add Movies and Series
 eg-<code>channel id or username</code>
@@ -54,7 +54,7 @@ or
 <code>/delall</code>
 This Command Will Disconnect All Connected Channel With The Group And Deletes All Its File From DB"""
 
-    SETTING_TXT = """<code>/settings</code>
+    SETTINGS_TXT = """<code>/settings</code>
 This Command Will Display You A Settings Pannel Instance Which Can Be Used To Tweek Bot's Settings Accordingly
 <code>Channel</code>
 Button Will Show You All The Connected Chats With The Group And Will Show Buttons Correspnding To There Order For Furthur Controls
