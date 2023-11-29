@@ -5,9 +5,10 @@ from bot import LOGGER # pylint: disable=import-error
 from bot.database import Database # pylint: disable=import-error
 from Script import script
 import asyncio
-from bot import __init__ #import for Log channel
+from bot import __init__ # import os envirn
 db = Database()
 import os
+
 
 FORCE_SUB = "wudixh13"
 
@@ -50,7 +51,7 @@ async def start(bot, update):
         elif file_size < (1024**4):
             file_size = f"[{str(round(file_size/(1024**3), 2))} GB]"
 #CUSTOM FILE CAPTION       
-        caption = f""" 📂 <em>File Name</em>: <code>Kᴜᴛᴛᴜ Bot | {file_name} </code> \n\n🖇 <em>File Size</em>: <code> {file_size} </code>"""
+        caption = CUSTOM_FILE_CAPTION #FILE CAP NOT CHANGE HERE GO TO YOUR VPS AND CHANGE THEIR
         
         try:
             await update.reply_cached_media(
