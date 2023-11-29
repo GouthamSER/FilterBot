@@ -5,7 +5,7 @@ from bot import LOGGER # pylint: disable=import-error
 from bot.database import Database # pylint: disable=import-error
 from Script import script
 import asyncio
-from bot import __init__ # import os envirn
+from . import CUSTOM_FILE_CAPTION # import os envirn
 db = Database()
 import os
 
