@@ -1628,7 +1628,7 @@ async def callback_data(bot, update: CallbackQuery):
     elif update.data == "help":
         await update.answer("Lᴏᴀᴅɪɴɢ...")
         buttons = [[
-            InlineKeyboardButton('Config🛠', callback_data='config')
+            InlineKeyboardButton('Config🛠', callback_data="config")
             
         ],[
             InlineKeyboardButton('🏡Hᴏᴍᴇ', callback_data='start'),
