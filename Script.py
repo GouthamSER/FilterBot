@@ -51,3 +51,6 @@ Bᴜᴛᴛᴏɴ Wɪʟʟ Sʜᴏᴡ Yᴏᴜ Aʟʟ Tʜᴇ Cᴏɴɴᴇᴄᴛᴇᴅ C
 
 
     RESULT_TXT = """Hᴇʀᴇ Is Wʜᴀᴛ I Fᴏᴜɴᴅ Fᴏʀ Yᴏᴜʀ Sᴇaʀᴄʜ"""
+    COMMANDS_TXT = """/start - to start the bot
+    /help - help cmd
+    /settings - settings the group(change only ib group)"""
