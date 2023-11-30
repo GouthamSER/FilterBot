@@ -1637,7 +1637,7 @@ async def callback_data(bot, update: CallbackQuery):
     
         reply_markup = InlineKeyboardMarkup(buttons)
         
-        await update.message.edit(
+        await update.message.edit_text(
             text = script.HELP_TEXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
@@ -1651,7 +1651,7 @@ async def callback_data(bot, update: CallbackQuery):
         
         reply_markup = InlineKeyboardMarkup(buttons)
         
-        await update.message.edit(
+        await update.message.edit_text(
             text = script.ABOUT_TEXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
@@ -1665,9 +1665,10 @@ async def callback_data(bot, update: CallbackQuery):
             InlineKeyboardButton('👩‍🦯 Back', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await update.message.edit(
+        await update.message.edit_text(
             text = script.CONFIG_TXT,
-            reply_markup=reply_markup
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
         )
 
     elif update.data == 'cmds':
@@ -1676,9 +1677,10 @@ async def callback_data(bot, update: CallbackQuery):
             InlineKeyboardButton('👩‍🦯 Back', callback_data='config')
         ]]
         reply_markup = InlineKeyboardMarkup(butt)
-        await update.message.edit(
+        await update.message.edit_text(
             text = script.COMMANDS_TXT,
-            reply_markup=reply_markup
+            reply_markup=reply_markup,
+            parse_mode=enums.ParseMode.HTML
         )
         
     elif update.data == "close":
