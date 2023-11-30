@@ -51,7 +51,7 @@ async def start(bot, update):
         elif file_size < (1024**4):
             file_size = f"[{str(round(file_size/(1024**3), 2))} GB]"
 #CUSTOM FILE CAPTION       
-        caption = CUSTOM_FILE_CAPTION #FILE CAP NOT CHANGE HERE GO TO YOUR VPS AND CHANGE THEIR
+        caption = f"""📂 <em>File Name</em>: <code>Kᴜᴛᴛᴜ Bot | {file_name} </code> \n\n🖇 <em>File Size</em>: <code> {file_size} </code> """#FILE CAP NOT CHANGE HERE GO TO YOUR VPS AND CHANGE THEIR
         
         try:
             await update.reply_cached_media(
