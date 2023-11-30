@@ -1601,7 +1601,7 @@ async def cb_about(bot, update: CallbackQuery):
 
 
 # pm start
-@Client.on_callback_query(filters.regex(r"^(start|help|about|configs|close)$"), group=2)
+@Client.on_callback_query(filters.regex(r"^(start|help|about|configs|cmds|close)$"), group=2)
 async def callback_data(bot, update: CallbackQuery):
 
     query_data = update.data
@@ -1660,13 +1660,25 @@ async def callback_data(bot, update: CallbackQuery):
     elif update.data=="config":
         await update.answer("Aᴄᴄᴇssɪɴɢ...")
         buttons = [[
+            InlineKeyboardButton('CMDS ⚙', callback_data='cmds')
+        ],[
             InlineKeyboardButton('👩‍🦯 Back', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await update.message.edit(
-            text=script.CONFIG_TXT,
-            reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
+            text = script.CONFIG_TXT,
+            reply_markup=reply_markup
+        )
+
+    elif update.data == 'cmds':
+        await update.answer('COMMANDS LOADING...')
+        butt=[[
+            InlineKeyboardButton('👩‍🦯 Back', callback_data='config')
+        ]]
+        reply_markup = InlineKeyboardMarkup(butt)
+        await update.message.edit(
+            text = script.COMMANDS_TXT,
+            reply_markup=reply_markup
         )
         
     elif update.data == "close":
