@@ -8,12 +8,9 @@ from aiohttp import web as webserver
 
 PORT_CODE = environ.get("PORT", "8080")
 
-from .user import User
+
 
 class Bot(Client):
-    USER: User = None
-    USER_ID: int = None
-
     def __init__(self):
         super().__init__(
             "bot",
@@ -24,7 +21,7 @@ class Bot(Client):
             },
             workers=200,
             bot_token=BOT_TOKEN,
-            sleep_threshold=10
+            sleep_threshold=5
         )
         self.LOGGER = LOGGER
 
@@ -42,7 +39,6 @@ class Bot(Client):
         self.LOGGER(__name__).info(
             f"@{bot_details.username}  started! "
         )
-        self.USER, self.USER_ID = await User().start()
         
 
     async def stop(self, *args):
