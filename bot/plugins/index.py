@@ -3,7 +3,7 @@ import asyncio
 import re
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait
-from info import ADMINS
+from bot.__init__ import ADMINS
 import os
 import pyromod.listen #for listen the msges
 from bot.database.database import save_file
