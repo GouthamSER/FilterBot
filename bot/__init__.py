@@ -25,7 +25,7 @@ LOG_CHANNEL=os.environ.get("LOG_CHANNEL")
 
 CUSTOM_FILE_CAPTION=os.environ.get("CUSTOM_FILE_CAPTION")
 
-ADMINS=os.environ.get("ADMINS")
+ADMINS=int(os.environ.get("ADMINS"))
 
 VERIFY = {}
 
