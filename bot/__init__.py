@@ -25,7 +25,7 @@ LOG_CHANNEL=os.environ.get("LOG_CHANNEL")
 
 CUSTOM_FILE_CAPTION=os.environ.get("CUSTOM_FILE_CAPTION")
 
-ADMINS=int(os.environ.get("ADMINS"))
+ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '').split()]
 
 VERIFY = {}
 
