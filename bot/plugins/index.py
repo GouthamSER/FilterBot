@@ -6,7 +6,7 @@ from pyrogram.errors import FloodWait
 from bot.__init__ import ADMINS
 import os
 import pyromod.listen #for listen the msges
-from bot.database.database import save_file
+from bot.database import Database
 logger = logging.getLogger(__name__)
 lock = asyncio.Lock()
 
