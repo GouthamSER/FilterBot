@@ -10,6 +10,7 @@ from bot.database.database import save_file
 logger = logging.getLogger(__name__)
 lock = asyncio.Lock()
 
+db=Database()
 
 @Client.on_message(filters.command(['index', 'indexfiles']) & filters.user(ADMINS))
 async def index_files(bot, message):
@@ -60,7 +61,7 @@ async def index_files(bot, message):
                                 continue
                         media.file_type = file_type
                         media.caption = message.caption
-                        await save_file(media)
+                        await db.add_filters(data)
                         total_files += 1
                     except Exception as e:
                         print(e)
