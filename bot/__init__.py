@@ -13,17 +13,17 @@ API_HASH = environ['API_HASH']
 
 BOT_TOKEN = environ['BOT_TOKEN']
 
-DATABASE_URI = os.environ.get("DATABASE_URI")
+DATABASE_URI = environ.get("DATABASE_URI")
 
-USER_SESSION = os.environ.get("USER_SESSION")
+USER_SESSION = environ.get("USER_SESSION")
 
-DATABASE_NAME=os.environ.get("DATABASE_NAME")
+DATABASE_NAME= environ.get("DATABASE_NAME")
 
-COLLECTION_NAME=os.environ.get("COLLECTION_NAME")
+COLLECTION_NAME= environ.get("COLLECTION_NAME")
 
-LOG_CHANNEL=os.environ.get("LOG_CHANNEL")
+LOG_CHANNEL= environ.get("LOG_CHANNEL")
 
-CUSTOM_FILE_CAPTION=os.environ.get("CUSTOM_FILE_CAPTION")
+CUSTOM_FILE_CAPTION= environ.get("CUSTOM_FILE_CAPTION")
 
 ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '').split()]
 
