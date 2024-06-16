@@ -7,11 +7,11 @@ from logging.handlers import RotatingFileHandler
 from Script import script
 
 # Change Accordingly While Deploying To A VPS
-API_ID = int(os.environ.get("API_ID"))
+API_ID = int(environ['API_ID'])
 
-API_HASH = os.environ.get("API_HASH")
+API_HASH = environ['API_HASH']
 
-BOT_TOKEN = os.environ.get("BOT_TOKEN")
+BOT_TOKEN = environ['BOT_TOKEN']
 
 DATABASE_URI = os.environ.get("DATABASE_URI")
 
