@@ -1,6 +1,7 @@
 from os import environ
 import logging
 import time
+import re
 
 id_pattern = re.compile(r'^.\d+$')
 def is_enabled(value, default):
