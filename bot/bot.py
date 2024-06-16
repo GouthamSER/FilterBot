@@ -6,7 +6,7 @@ from bot.plugins.webcode import bot_run
 from os import environ
 from aiohttp import web as webserver
 
-PORT_CODE = environ.get("PORT", "8080")
+PORT_CODE = environ.get("PORT", "4000")
 
 
 
